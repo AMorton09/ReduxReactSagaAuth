@@ -4,7 +4,7 @@ import { applyMiddleware, createStore, compose } from 'redux'
 import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
 
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // Import all of our components
 import App from './App'
 import Login from './Scenes/Login'
@@ -46,11 +46,12 @@ sagaMiddleware.run(IndexSagas)
 // Setup the top level router component for our React Router
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={Router}>
-      <Route path="/" component={App}>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={App} />
         <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-      </Route>
+        <Route exact path="/register" component={Register} />
+      </Switch>
     </Router>
   </Provider>,
   document.getElementById('root')
