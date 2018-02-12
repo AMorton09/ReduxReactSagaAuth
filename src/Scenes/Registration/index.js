@@ -42,8 +42,8 @@ class Registration extends Component {
     return (
       <div className="registration">
         {/* Use the Submit handler with our own submit handler*/}
-        <form className="widget-form" onSubmit={handleSubmit(this.submit)}>
-          <h1>registration</h1>
+        <form className="register-form" onSubmit={handleSubmit(this.submit)}>
+          <h1>Create New Account</h1>
           <label htmlFor="email">Email</label>
           <Field
             name="email"
@@ -53,6 +53,30 @@ class Registration extends Component {
             label="Email"
             component="input"
           />
+          <label htmlFor="firstName">First Name</label>
+          <Field
+            name="firstName"
+            type="text"
+            id="firstName"
+            className="firstName"
+            label="FirstName"
+            component="input"
+          />
+          <label htmlFor="lastName">Last Name</label>
+          <Field
+            name="lastName"
+            type="text"
+            id="lastName"
+            className="lastName"
+            label="LastName"
+            component="input"
+          />
+          <label htmlFor="type">User Type</label>
+          <Field name="userType" component="select">
+            <option />
+            <option value="Band">Band</option>
+            <option value="Venue">Venue</option>
+          </Field>
           <label htmlFor="password">Password</label>
           <Field
             name="password"
@@ -62,7 +86,7 @@ class Registration extends Component {
             label="Password"
             component="input"
           />
-          <button action="submit">registration</button>
+          <button action="submit">Register</button>
         </form>
         <div className="auth-messages">
           {/* 
